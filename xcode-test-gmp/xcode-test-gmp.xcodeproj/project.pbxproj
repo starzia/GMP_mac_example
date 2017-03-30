@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06E711781E8DAF9800296BF1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06E711771E8DAF9800296BF1 /* main.cpp */; };
+		0616309F1E8DB0B600522301 /* libgmp.10.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0616309D1E8DB0B600522301 /* libgmp.10.dylib */; };
+		061630A01E8DB0B600522301 /* libgmpxx.4.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0616309E1E8DB0B600522301 /* libgmpxx.4.dylib */; };
+		06E711781E8DAF9800296BF1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 06E711771E8DAF9800296BF1 /* main.cpp */; settings = {COMPILER_FLAGS = "-lgmp -lgmpxx -I/usr/local/include"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,6 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0616309D1E8DB0B600522301 /* libgmp.10.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgmp.10.dylib; path = ../../../../../../usr/local/Cellar/gmp/6.1.2/lib/libgmp.10.dylib; sourceTree = "<group>"; };
+		0616309E1E8DB0B600522301 /* libgmpxx.4.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libgmpxx.4.dylib; path = ../../../../../../usr/local/Cellar/gmp/6.1.2/lib/libgmpxx.4.dylib; sourceTree = "<group>"; };
 		06E711741E8DAF9800296BF1 /* xcode-test-gmp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "xcode-test-gmp"; sourceTree = BUILT_PRODUCTS_DIR; };
 		06E711771E8DAF9800296BF1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,17 +36,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0616309F1E8DB0B600522301 /* libgmp.10.dylib in Frameworks */,
+				061630A01E8DB0B600522301 /* libgmpxx.4.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0616309C1E8DB0B600522301 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0616309D1E8DB0B600522301 /* libgmp.10.dylib */,
+				0616309E1E8DB0B600522301 /* libgmpxx.4.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		06E7116B1E8DAF9800296BF1 = {
 			isa = PBXGroup;
 			children = (
 				06E711761E8DAF9800296BF1 /* xcode-test-gmp */,
 				06E711751E8DAF9800296BF1 /* Products */,
+				0616309C1E8DB0B600522301 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,6 +234,10 @@
 		06E7117C1E8DAF9800296BF1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/gmp/6.1.2/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -225,6 +245,10 @@
 		06E7117D1E8DAF9800296BF1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/gmp/6.1.2/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -248,6 +272,7 @@
 				06E7117D1E8DAF9800296BF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
