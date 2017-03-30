@@ -1,0 +1,38 @@
+<html>
+<head>
+<style>
+img{
+    margin-left:100px;
+    max-width: -webkit-calc(100% - 100px);
+    max-width:    -moz-calc(100% - 100px);
+    max-width:         calc(100% - 100px);
+}
+</style>
+</head>
+
+<body>
+<h1>How to make your Xcode project compile with GMP</h1>
+<p>These instructions show how I setup the test program in this repository.
+
+<p><b>Prerequisite:</b> install GMP using <a href="https://brew.sh/">Homebrew</a> ("brew install gmp").
+<p>Step 1: double-click the project and edit the build phases:
+<br><img src="screenshots/step 1.png">
+<br>Set some compiler flags for your source file.  <b>NOTE:</b> please copy and paste "-lgmp -lgmpxx -I/usr/local/include" because the first two parameters use a lower-case "l" for "library" and the third parameter is an upper-case "I" for "include."
+
+<p>Step 2: add to "Link Binary with Libraries" and choose "Add Other.."
+<br><img src="screenshots/step 2.png">
+
+<p>Step 3: type "Apple-Shift-G" to go to a hidden folder, and type "/usr/local/lib" because that is where Homebrew installed GMP.
+<br><img src="screenshots/step 3.png">
+
+<p>Step 4: Open the "libgmp.dylib" and "libgmpxx.dylib" dynamic library files.  You can also add these one at a time.
+<br><img src="screenshots/step 4.png">
+
+<p>Step 5: Your project configuration should now look like this:
+<br><img src="screenshots/step 5.png">
+
+<p>Step 6: Run your program and it should work!
+<br><img src="screenshots/step 6.png">
+
+</body>
+</html>
